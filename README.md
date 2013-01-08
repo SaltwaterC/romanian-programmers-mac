@@ -5,5 +5,7 @@ Romanian Programmers pentru Mac OS X. Povestea a început [aici](http://www.salt
 ## Instalare / Actualizare
 
 ```bash
-curl https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/install.sh | sh
+curl https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/install.sh | bash
 ```
+
+Atenție: în caz de actualizare, este nevoie de un logout + login pentru ca schimbările să fie vizibile.
