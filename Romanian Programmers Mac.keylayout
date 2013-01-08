@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<!--Last edited by Ukelele version 2.2.3 on 2012-12-11 at 17:46 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 00:54 (GMT+02:00)-->
 <keyboard group="126" id="-3920" name="Romanian Programmers Mac" maxout="1">
     <layouts>
         <layout first="0" last="0" modifiers="48" mapSet="312"/>
@@ -281,7 +281,7 @@
             <key code="7" action="a44"/>
             <key code="8" action="a62"/>
             <key code="9" output="V"/>
-            <key code="10" output="§"/>
+            <key code="10" output="`"/>
             <key code="11" action="a18"/>
             <key code="12" output="Q"/>
             <key code="13" action="a42"/>
@@ -321,7 +321,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
             <key code="49" action="a47"/>
-            <key code="50" output="`"/>
+            <key code="50" output="§"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
