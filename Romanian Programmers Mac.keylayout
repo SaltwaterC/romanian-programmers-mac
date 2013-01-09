@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 00:54 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 02:02 (GMT+02:00)-->
 <keyboard group="126" id="-3920" name="Romanian Programmers Mac" maxout="1">
     <layouts>
         <layout first="0" last="0" modifiers="48" mapSet="312"/>
@@ -409,11 +409,11 @@
             <key code="7" output="ş"/>
             <key code="8" action="a6"/>
             <key code="9" action="a12"/>
-            <key code="10" output="§"/>
+            <key code="10" output="`"/>
             <key code="11" action="a5"/>
             <key code="12" output="â"/>
             <key code="13" output="ß"/>
-            <key code="14" action="a7"/>
+            <key code="14" output="€"/>
             <key code="15" output="®"/>
             <key code="16" output="¥"/>
             <key code="17" action="a69"/>
@@ -449,7 +449,7 @@
             <key code="47" action="a1"/>
             <key code="48" output="&#x0009;"/>
             <key code="49" output=" "/>
-            <key code="50" action="a4"/>
+            <key code="50" output="§"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
@@ -528,11 +528,11 @@
             <key code="7" output="Ş"/>
             <key code="8" output="Ç"/>
             <key code="9" output="◊"/>
-            <key code="10" output="±"/>
+            <key code="10" output="~"/>
             <key code="11" output="ı"/>
             <key code="12" output="Â"/>
             <key code="13" output="„"/>
-            <key code="14" action="a14"/>
+            <key code="14" output="€"/>
             <key code="15" output="‰"/>
             <key code="16" output="Á"/>
             <key code="17" action="a70"/>
@@ -568,7 +568,7 @@
             <key code="47" output="»"/>
             <key code="48" output="&#x0009;"/>
             <key code="49" output=" "/>
-            <key code="50" output="`"/>
+            <key code="50" output="±"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
@@ -637,8 +637,8 @@
             <key code="126" output="&#x001E;"/>
         </keyMap>
         <keyMap index="5">
-            <key code="0" output="Å"/>
-            <key code="1" output="Í"/>
+            <key code="0" output="Ă"/>
+            <key code="1" output="Ș"/>
             <key code="2" output="Î"/>
             <key code="3" output="Ï"/>
             <key code="4" output="Ó"/>
@@ -647,9 +647,9 @@
             <key code="7" output="ş"/>
             <key code="8" output="Ç"/>
             <key code="9" action="a12"/>
-            <key code="10" output="§"/>
+            <key code="10" output="~"/>
             <key code="11" output="ı"/>
-            <key code="12" output="Œ"/>
+            <key code="12" output="Â"/>
             <key code="13" output="ß"/>
             <key code="14" output="€"/>
             <key code="15" output="®"/>
@@ -671,7 +671,7 @@
             <key code="31" action="a68"/>
             <key code="32" action="a11"/>
             <key code="33" output="„"/>
-            <key code="34" output="î"/>
+            <key code="34" output="Î"/>
             <key code="35" output="∏"/>
             <key code="36" output="&#x000D;"/>
             <key code="37" output="Ò"/>
@@ -687,7 +687,7 @@
             <key code="47" action="a1"/>
             <key code="48" output="&#x0009;"/>
             <key code="49" output=" "/>
-            <key code="50" action="a4"/>
+            <key code="50" output="±"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
@@ -766,7 +766,7 @@
             <key code="7" action="a43"/>
             <key code="8" action="a61"/>
             <key code="9" output="v"/>
-            <key code="10" output="§"/>
+            <key code="10" output="`"/>
             <key code="11" action="a17"/>
             <key code="12" output="q"/>
             <key code="13" action="a41"/>
@@ -806,7 +806,7 @@
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
             <key code="49" action="a47"/>
-            <key code="50" output="`"/>
+            <key code="50" output="§"/>
             <key code="51" output="&#x0008;"/>
             <key code="52" output="&#x0003;"/>
             <key code="53" output="&#x001B;"/>
@@ -1439,7 +1439,7 @@
             <when state="s7" output="Ǿ"/>
         </action>
         <action id="a69">
-            <when state="none" output="ț"/>
+            <when state="none" output="Ț"/>
             <when state="s7" output="ǽ"/>
         </action>
         <action id="a70">
