@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 12:33 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 12:53 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -228,8 +228,9 @@
             <key code="35" output="§"/>
             <key code="36" output="&#x000D;"/>
             <key code="41" output="ł"/>
-            <key code="44" output="»"/>
-            <key code="47" output="«"/>
+            <key code="43" output="«"/>
+            <key code="44" output=""/>
+            <key code="47" output="»"/>
             <key code="48" output="&#x0009;"/>
             <key code="51" output="&#x0008;"/>
             <key code="53" output="&#x001B;"/>
