@@ -8,9 +8,9 @@ sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.keylayout"
 sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.icns"
 
 # install / update the current version
-echo "Installing Romanian - Programmers.icns"
+echo "» Romanian - Programmers.icns"
 sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.icns" --output "/Library/Keyboard Layouts/Romanian - Programmers.icns"
-echo "Installing Romanian - Programmers.keylayout"
+echo "» Romanian - Programmers.keylayout"
 sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.keylayout" --output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
 
 # clear the OS intl caches
