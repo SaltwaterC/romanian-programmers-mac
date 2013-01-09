@@ -15,6 +15,8 @@ Implementarea reprezintă doar un subset al SR 13392:2004. Sunt prezente urmă
 curl --silent https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/install.sh | bash
 ```
 
-Atenție:
+**Atenție!**
+
  * la instalare trebuie activat din *System Preferences > Language & Text > Input Sources > Romanian - Programmers*.
  * la actualizare este nevoie de un logout + login pentru ca schimbările să fie vizibile.
+
