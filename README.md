@@ -18,7 +18,7 @@ Layout-ul original a fost luat de [aici](http://andrei.clubcisco.ro/2009/09/19/r
 
  * ` și ~ în poziția lor naturală cum se găsesc pe tastaturile non-Apple. Un sysadmin cu experiență se va obișnui destul de greu cu noua poziție dintre Shift (dreapta) și z. Eu am ales varianta de a nu mă obișnui cu această inepție marca Apple. Acestea au fost mutate chiar și pentru combinațiile de taste ce au funcție de modificare: Command, Option, Caps Lock + Option.
  * Option + e => € așa cum se găsește în mod tradițional în layout-ul lui Secărică. Valabil și pentru Option + Shift + E.
- * Caps Lock + Option + {literă} produce majuscule cu diacritice pe tastele uzuale ce se obțin folosind Shift + Option + {literă}.
+ * Caps Lock + Option + {literă} produce majuscule cu diacritice pe tastele uzuale ce se obțin folosind Shift + Option + {literă}. Excepție: Caps Lock + Option + t => ț (mai am de săpat prin Ukelele).
 
 ## Planificat
 
