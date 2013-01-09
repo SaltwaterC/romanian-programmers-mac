@@ -14,8 +14,8 @@ echo "» Romanian - Programmers.keylayout"
 sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.keylayout" --output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
 
 # clear the OS intl caches
-sudo find /System/Library/Caches -name "*IntlDataCache*" 2>/dev/null | xargs rm -v
-sudo find /var -name "*IntlDataCache*" 2>/dev/null | xargs rm -v
+sudo find /System/Library/Caches -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
+sudo find /var -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
 
 # in case of update ...
 echo -e "\n\033[1mAtentie: pentru ca schimbarile sa fie vizibile dupa actualizare, este nevoie de logout + login\033[0m"
