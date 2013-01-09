@@ -222,7 +222,7 @@
             <key code="13" output="ß"/>
             <key code="14" output="€"/>
             <key code="17" output="ț"/>
-            <key code="18" action="State 0"/>
+            <key code="18" action="tilda"/>
             <key code="19" output=""/>
             <key code="20" output=""/>
             <key code="21" output=""/>
@@ -445,16 +445,16 @@
     <actions>
         <action id=" ">
             <when state="none" output=" "/>
-            <when state="State 0" output="~"/>
+            <when state="tilda" output="~"/>
         </action>
         <action id="1">
             <when state="none" output="1"/>
         </action>
-        <action id="State 0">
-            <when state="none" next="State 0"/>
+        <action id="tilda">
+            <when state="none" next="tilda"/>
         </action>
     </actions>
     <terminators>
-        <when state="State 0" output="~"/>
+        <when state="tilda" output="~"/>
     </terminators>
 </keyboard>
