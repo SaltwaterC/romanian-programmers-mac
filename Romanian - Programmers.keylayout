@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 12:57 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 13:34 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -222,6 +222,18 @@
             <key code="13" output="ß"/>
             <key code="14" output="€"/>
             <key code="17" output="ț"/>
+            <key code="18" output="~"/>
+            <key code="19" output="ˇ"/>
+            <key code="20" output="^"/>
+            <key code="21" output="˘"/>
+            <key code="22" output="˛"/>
+            <key code="23" output="°"/>
+            <key code="24" output="¸"/>
+            <key code="25" output="´"/>
+            <key code="26" output="`"/>
+            <key code="27" output="¨"/>
+            <key code="28" output="˙"/>
+            <key code="29" output="˝"/>
             <key code="30" output="”"/>
             <key code="33" output="„"/>
             <key code="34" output="î"/>
