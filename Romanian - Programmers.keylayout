@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 15:12 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 15:37 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="1">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -455,6 +455,6 @@
         </action>
     </actions>
     <terminators>
-        <when state="State 0" output=""/>
+        <when state="State 0" output="~"/>
     </terminators>
 </keyboard>
