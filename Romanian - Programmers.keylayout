@@ -1,8 +1,8 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 13:34 (GMT+02:00)-->
-<keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
+<!--Last edited by Ukelele version 2.2.4 on 2013-01-09 at 15:12 (GMT+02:00)-->
+<keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="1">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
         <layout first="18" last="18" modifiers="Modifiers" mapSet="JIS"/>
@@ -52,7 +52,7 @@
             <key code="15" output="r"/>
             <key code="16" output="y"/>
             <key code="17" output="t"/>
-            <key code="18" output="1"/>
+            <key code="18" action="1"/>
             <key code="19" output="2"/>
             <key code="20" output="3"/>
             <key code="21" output="4"/>
@@ -83,7 +83,7 @@
             <key code="46" output="m"/>
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
-            <key code="49" output=" "/>
+            <key code="49" action=" "/>
             <key code="50" output="\"/>
             <key code="51" output="&#x0008;"/>
             <key code="53" output="&#x001B;"/>
@@ -214,7 +214,7 @@
             <key code="126" output="&#x001E;"/>
         </keyMap>
         <keyMap index="2">
-            <key code="0" output="ă"/>
+            <key code="0" output="ă"/>
             <key code="1" output="ș"/>
             <key code="2" output="đ"/>
             <key code="8" output="©"/>
@@ -222,28 +222,30 @@
             <key code="13" output="ß"/>
             <key code="14" output="€"/>
             <key code="17" output="ț"/>
-            <key code="18" output="~"/>
-            <key code="19" output="ˇ"/>
-            <key code="20" output="^"/>
-            <key code="21" output="˘"/>
-            <key code="22" output="˛"/>
-            <key code="23" output="°"/>
-            <key code="24" output="¸"/>
-            <key code="25" output="´"/>
-            <key code="26" output="`"/>
-            <key code="27" output="¨"/>
-            <key code="28" output="˙"/>
-            <key code="29" output="˝"/>
+            <key code="18" action="State 0"/>
+            <key code="19" output=""/>
+            <key code="20" output=""/>
+            <key code="21" output=""/>
+            <key code="22" output=""/>
+            <key code="23" output=""/>
+            <key code="24" output=""/>
+            <key code="25" output=""/>
+            <key code="26" output=""/>
+            <key code="27" output=""/>
+            <key code="28" output=""/>
+            <key code="29" output=""/>
             <key code="30" output="”"/>
             <key code="33" output="„"/>
             <key code="34" output="î"/>
             <key code="35" output="§"/>
             <key code="36" output="&#x000D;"/>
-            <key code="41" output="ł"/>
+            <key code="37" output="ł"/>
+            <key code="41" output=""/>
             <key code="43" output="«"/>
             <key code="44" output=""/>
             <key code="47" output="»"/>
             <key code="48" output="&#x0009;"/>
+            <key code="49" output=""/>
             <key code="51" output="&#x0008;"/>
             <key code="53" output="&#x001B;"/>
             <key code="64" output="&#x0010;"/>
@@ -379,7 +381,7 @@
             <key code="12" output="Â"/>
             <key code="17" output="Ț"/>
             <key code="24" output="±"/>
-            <key code="27" output="—"/>
+            <key code="27" output="–"/>
             <key code="34" output="Î"/>
             <key code="36" output="&#x000D;"/>
             <key code="37" output="Ł"/>
@@ -440,4 +442,19 @@
             <key code="512" output=""/>
         </keyMap>
     </keyMapSet>
+    <actions>
+        <action id=" ">
+            <when state="none" output=" "/>
+            <when state="State 0" output="~"/>
+        </action>
+        <action id="1">
+            <when state="none" output="1"/>
+        </action>
+        <action id="State 0">
+            <when state="none" next="State 0"/>
+        </action>
+    </actions>
+    <terminators>
+        <when state="State 0" output=""/>
+    </terminators>
 </keyboard>

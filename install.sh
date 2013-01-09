@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+remote=1
+if [ "$1" == "local" ]
+then
+	remote=0
+fi
+
 # the directory may not exist
 sudo mkdir -p "/Library/Keyboard Layouts"
 
@@ -8,10 +14,20 @@ sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.keylayout"
 sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.icns"
 
 # install / update the current version
-echo "» Romanian - Programmers.icns"
-sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.icns" --output "/Library/Keyboard Layouts/Romanian - Programmers.icns"
-echo "» Romanian - Programmers.keylayout"
-sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.keylayout" --output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
+if [ "$1"=="local" ]
+then
+	echo "» Instalez Romanian - Programmers folosind depozitul curent"
+	echo "» Instalez Romanian - Programmers.icns"
+	sudo cp "Romanian - Programmers.icns" "/Library/Keyboard Layouts/"
+	echo "» Instalez Romanian - Programmers.keylayout"
+	sudo cp "Romanian - Programmers.keylayout" "/Library/Keyboard Layouts/"
+else
+	echo "» Instalez Romanian - Programmers folosind GitHub"
+	echo "» Instalez Romanian - Programmers.icns"
+	sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.icns" --output "/Library/Keyboard Layouts/Romanian - Programmers.icns"
+	echo "» Instalez Romanian - Programmers.keylayout"
+	sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.keylayout" --output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
+fi
 
 # clear the OS intl caches
 sudo find /System/Library/Caches -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
