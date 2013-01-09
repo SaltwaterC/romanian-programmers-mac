@@ -52,7 +52,7 @@
             <key code="15" output="r"/>
             <key code="16" output="y"/>
             <key code="17" output="t"/>
-            <key code="18" action="1"/>
+            <key code="18" output="1"/>
             <key code="19" output="2"/>
             <key code="20" output="3"/>
             <key code="21" output="4"/>
@@ -446,9 +446,6 @@
         <action id=" ">
             <when state="none" output=" "/>
             <when state="tilda" output="~"/>
-        </action>
-        <action id="1">
-            <when state="none" output="1"/>
         </action>
         <action id="tilda">
             <when state="none" next="tilda"/>

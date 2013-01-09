@@ -19,4 +19,3 @@ curl --silent https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/
 
  * la instalare trebuie activat din *System Preferences > Language & Text > Input Sources > Romanian - Programmers*.
  * la actualizare este nevoie de un logout + login pentru ca schimbările să fie vizibile.
-
