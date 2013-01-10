@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-remote=1
-if [ "$1" == "local" ]
-then
-	remote=0
-fi
-
 # the directory may not exist
 sudo mkdir -p "/Library/Keyboard Layouts"
 
@@ -14,7 +8,7 @@ sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.keylayout"
 sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.icns"
 
 # install / update the current version
-if [ "$1"=="local" ]
+if [ "$1" == "local" ]
 then
 	echo "» Instalez Romanian - Programmers folosind depozitul curent"
 	echo "» Instalez Romanian - Programmers.icns"
