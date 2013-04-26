@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:16 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:23 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -226,7 +226,7 @@
             <key code="19" output=""/>
             <key code="20" output=""/>
             <key code="21" output=""/>
-            <key code="22" output=""/>
+            <key code="22" action="ogonek"/>
             <key code="23" action="ring"/>
             <key code="24" output=""/>
             <key code="25" action="acute"/>
@@ -451,6 +451,7 @@
             <when state="none" output="A"/>
             <when state="acute" output="Á"/>
             <when state="grave" output="À"/>
+            <when state="ogonek" output="Ą"/>
             <when state="ring" output="Å"/>
             <when state="umlaut" output="Ä"/>
         </action>
@@ -463,6 +464,7 @@
             <when state="none" output="E"/>
             <when state="acute" output="É"/>
             <when state="grave" output="È"/>
+            <when state="ogonek" output="Ę"/>
             <when state="ring" output="E̊"/>
             <when state="umlaut" output="Ë"/>
         </action>
@@ -478,6 +480,7 @@
             <when state="none" output="I"/>
             <when state="acute" output="Í"/>
             <when state="grave" output="Ì"/>
+            <when state="ogonek" output="Į"/>
             <when state="umlaut" output="Ï"/>
         </action>
         <action id="K">
@@ -503,6 +506,7 @@
             <when state="none" output="O"/>
             <when state="acute" output="Ó"/>
             <when state="grave" output="Ò"/>
+            <when state="ogonek" output="Ǫ"/>
             <when state="umlaut" output="Ö"/>
         </action>
         <action id="P">
@@ -531,6 +535,7 @@
             <when state="none" output="U"/>
             <when state="acute" output="Ú"/>
             <when state="grave" output="Ù"/>
+            <when state="ogonek" output="Ų"/>
             <when state="ring" output="Ů"/>
             <when state="umlaut" output="Ü"/>
         </action>
@@ -554,6 +559,7 @@
             <when state="none" output="Y"/>
             <when state="acute" output="Ý"/>
             <when state="grave" output="Ỳ"/>
+            <when state="ogonek" output="Y̨"/>
             <when state="ring" output="Y̊"/>
             <when state="umlaut" output="Ÿ"/>
         </action>
@@ -565,6 +571,7 @@
             <when state="none" output="a"/>
             <when state="acute" output="á"/>
             <when state="grave" output="à"/>
+            <when state="ogonek" output="ą"/>
             <when state="ring" output="å"/>
             <when state="umlaut" output="ä"/>
         </action>
@@ -580,6 +587,7 @@
             <when state="none" output="e"/>
             <when state="acute" output="é"/>
             <when state="grave" output="è"/>
+            <when state="ogonek" output="ę"/>
             <when state="ring" output="e̊"/>
             <when state="umlaut" output="ë"/>
         </action>
@@ -598,6 +606,7 @@
             <when state="none" output="i"/>
             <when state="acute" output="í"/>
             <when state="grave" output="ì"/>
+            <when state="ogonek" output="į"/>
             <when state="umlaut" output="ï"/>
         </action>
         <action id="k">
@@ -623,7 +632,11 @@
             <when state="none" output="o"/>
             <when state="acute" output="ó"/>
             <when state="grave" output="ò"/>
+            <when state="ogonek" output="ǫ"/>
             <when state="umlaut" output="ö"/>
+        </action>
+        <action id="ogonek">
+            <when state="none" next="ogonek"/>
         </action>
         <action id="p">
             <when state="none" output="p"/>
@@ -657,6 +670,7 @@
             <when state="none" output="u"/>
             <when state="acute" output="ú"/>
             <when state="grave" output="ù"/>
+            <when state="ogonek" output="ų"/>
             <when state="ring" output="ů"/>
             <when state="umlaut" output="ü"/>
         </action>
@@ -683,6 +697,7 @@
             <when state="none" output="y"/>
             <when state="acute" output="ý"/>
             <when state="grave" output="ỳ"/>
+            <when state="ogonek" output="y̨"/>
             <when state="ring" output="ẙ"/>
             <when state="umlaut" output="ÿ"/>
         </action>
@@ -694,6 +709,7 @@
     <terminators>
         <when state="acute" output="´"/>
         <when state="grave" output="`"/>
+        <when state="ogonek" output="˛"/>
         <when state="ring" output="˚"/>
         <when state="tilda" output="~"/>
         <when state="umlaut" output="¨"/>
