@@ -1,8 +1,8 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:05 (GMT+02:00)-->
-<keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="1">
+<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:10 (GMT+02:00)-->
+<keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
         <layout first="18" last="18" modifiers="Modifiers" mapSet="JIS"/>
@@ -41,12 +41,12 @@
             <key code="4" output="h"/>
             <key code="5" action="g"/>
             <key code="6" action="z"/>
-            <key code="7" output="x"/>
+            <key code="7" action="x"/>
             <key code="8" action="c"/>
             <key code="9" output="v"/>
             <key code="10" output="`"/>
             <key code="11" output="b"/>
-            <key code="12" output="q"/>
+            <key code="12" action="q"/>
             <key code="13" action="w"/>
             <key code="14" action="e"/>
             <key code="15" action="r"/>
@@ -131,12 +131,12 @@
             <key code="4" output="H"/>
             <key code="5" action="G"/>
             <key code="6" action="Z"/>
-            <key code="7" output="X"/>
+            <key code="7" action="X"/>
             <key code="8" action="C"/>
             <key code="9" output="V"/>
             <key code="10" output="~"/>
             <key code="11" output="B"/>
-            <key code="12" output="Q"/>
+            <key code="12" action="Q"/>
             <key code="13" action="W"/>
             <key code="14" action="E"/>
             <key code="15" action="R"/>
@@ -227,7 +227,7 @@
             <key code="20" output=""/>
             <key code="21" output=""/>
             <key code="22" output=""/>
-            <key code="23" output=""/>
+            <key code="23" action="ring"/>
             <key code="24" output=""/>
             <key code="25" action="acute"/>
             <key code="26" action="grave"/>
@@ -451,6 +451,7 @@
             <when state="none" output="A"/>
             <when state="acute" output="Á"/>
             <when state="grave" output="À"/>
+            <when state="ring" output="Å"/>
         </action>
         <action id="C">
             <when state="none" output="C"/>
@@ -460,6 +461,7 @@
             <when state="none" output="E"/>
             <when state="acute" output="É"/>
             <when state="grave" output="È"/>
+            <when state="ring" output="E̊"/>
         </action>
         <action id="G">
             <when state="none" output="G"/>
@@ -496,6 +498,10 @@
             <when state="none" output="P"/>
             <when state="acute" output="Ṕ"/>
         </action>
+        <action id="Q">
+            <when state="none" output="Q"/>
+            <when state="ring" output="Q̊"/>
+        </action>
         <action id="R">
             <when state="none" output="R"/>
             <when state="acute" output="Ŕ"/>
@@ -508,16 +514,23 @@
             <when state="none" output="U"/>
             <when state="acute" output="Ú"/>
             <when state="grave" output="Ù"/>
+            <when state="ring" output="Ů"/>
         </action>
         <action id="W">
             <when state="none" output="W"/>
             <when state="acute" output="Ẃ"/>
             <when state="grave" output="Ẁ"/>
+            <when state="ring" output="W̊"/>
+        </action>
+        <action id="X">
+            <when state="none" output="X"/>
+            <when state="ring" output="X̊"/>
         </action>
         <action id="Y">
             <when state="none" output="Y"/>
             <when state="acute" output="Ý"/>
             <when state="grave" output="Ỳ"/>
+            <when state="ring" output="Y̊"/>
         </action>
         <action id="Z">
             <when state="none" output="Z"/>
@@ -527,6 +540,7 @@
             <when state="none" output="a"/>
             <when state="acute" output="á"/>
             <when state="grave" output="à"/>
+            <when state="ring" output="å"/>
         </action>
         <action id="acute">
             <when state="none" next="acute"/>
@@ -539,6 +553,7 @@
             <when state="none" output="e"/>
             <when state="acute" output="é"/>
             <when state="grave" output="è"/>
+            <when state="ring" output="e̊"/>
         </action>
         <action id="g">
             <when state="none" output="g"/>
@@ -578,9 +593,16 @@
             <when state="none" output="p"/>
             <when state="acute" output="ṕ"/>
         </action>
+        <action id="q">
+            <when state="none" output="q"/>
+            <when state="ring" output="q̊"/>
+        </action>
         <action id="r">
             <when state="none" output="r"/>
             <when state="acute" output="ŕ"/>
+        </action>
+        <action id="ring">
+            <when state="none" next="ring"/>
         </action>
         <action id="s">
             <when state="none" output="s"/>
@@ -593,16 +615,23 @@
             <when state="none" output="u"/>
             <when state="acute" output="ú"/>
             <when state="grave" output="ù"/>
+            <when state="ring" output="ů"/>
         </action>
         <action id="w">
             <when state="none" output="w"/>
             <when state="acute" output="ẃ"/>
             <when state="grave" output="ẁ"/>
+            <when state="ring" output="ẘ"/>
+        </action>
+        <action id="x">
+            <when state="none" output="x"/>
+            <when state="ring" output="x̊"/>
         </action>
         <action id="y">
             <when state="none" output="y"/>
             <when state="acute" output="ý"/>
             <when state="grave" output="ỳ"/>
+            <when state="ring" output="ẙ"/>
         </action>
         <action id="z">
             <when state="none" output="z"/>
@@ -612,6 +641,7 @@
     <terminators>
         <when state="acute" output="´"/>
         <when state="grave" output="`"/>
+        <when state="ring" output="˚"/>
         <when state="tilda" output="~"/>
     </terminators>
 </keyboard>
