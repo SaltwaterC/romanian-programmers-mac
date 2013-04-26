@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:36 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:40 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -233,7 +233,7 @@
             <key code="26" action="grave"/>
             <key code="27" action="umlaut"/>
             <key code="28" output=""/>
-            <key code="29" output=""/>
+            <key code="29" action="double acute"/>
             <key code="30" output="”"/>
             <key code="33" output="„"/>
             <key code="34" output="î"/>
@@ -452,6 +452,7 @@
             <when state="acute" output="Á"/>
             <when state="cedilla" output="A̧"/>
             <when state="circumflex" output="Â"/>
+            <when state="double acute" output="A̋"/>
             <when state="grave" output="À"/>
             <when state="ogonek" output="Ą"/>
             <when state="ring" output="Å"/>
@@ -473,6 +474,7 @@
             <when state="acute" output="É"/>
             <when state="cedilla" output="Ȩ"/>
             <when state="circumflex" output="Ê"/>
+            <when state="double acute" output="E̋"/>
             <when state="grave" output="È"/>
             <when state="ogonek" output="Ę"/>
             <when state="ring" output="E̊"/>
@@ -493,6 +495,7 @@
             <when state="acute" output="Í"/>
             <when state="cedilla" output="I̧"/>
             <when state="circumflex" output="Î"/>
+            <when state="double acute" output="ɪ̋"/>
             <when state="grave" output="Ì"/>
             <when state="ogonek" output="Į"/>
             <when state="umlaut" output="Ï"/>
@@ -529,6 +532,7 @@
             <when state="acute" output="Ó"/>
             <when state="cedilla" output="O̧"/>
             <when state="circumflex" output="Ô"/>
+            <when state="double acute" output="Ő"/>
             <when state="grave" output="Ò"/>
             <when state="ogonek" output="Ǫ"/>
             <when state="umlaut" output="Ö"/>
@@ -564,6 +568,7 @@
             <when state="acute" output="Ú"/>
             <when state="cedilla" output="U̧"/>
             <when state="circumflex" output="Û"/>
+            <when state="double acute" output="Ű"/>
             <when state="grave" output="Ù"/>
             <when state="ogonek" output="Ų"/>
             <when state="ring" output="Ů"/>
@@ -606,6 +611,7 @@
             <when state="acute" output="á"/>
             <when state="cedilla" output="a̧"/>
             <when state="circumflex" output="â"/>
+            <when state="double acute" output="a̋"/>
             <when state="grave" output="à"/>
             <when state="ogonek" output="ą"/>
             <when state="ring" output="å"/>
@@ -631,11 +637,15 @@
             <when state="none" output="d"/>
             <when state="cedilla" output="ḑ"/>
         </action>
+        <action id="double acute">
+            <when state="none" next="double acute"/>
+        </action>
         <action id="e">
             <when state="none" output="e"/>
             <when state="acute" output="é"/>
             <when state="cedilla" output="ȩ"/>
             <when state="circumflex" output="ê"/>
+            <when state="double acute" output="e̋"/>
             <when state="grave" output="è"/>
             <when state="ogonek" output="ę"/>
             <when state="ring" output="e̊"/>
@@ -659,6 +669,7 @@
             <when state="acute" output="í"/>
             <when state="cedilla" output="i̧"/>
             <when state="circumflex" output="î"/>
+            <when state="double acute" output="i̋"/>
             <when state="grave" output="ì"/>
             <when state="ogonek" output="į"/>
             <when state="umlaut" output="ï"/>
@@ -695,6 +706,7 @@
             <when state="acute" output="ó"/>
             <when state="cedilla" output="o̧"/>
             <when state="circumflex" output="ô"/>
+            <when state="double acute" output="ő"/>
             <when state="grave" output="ò"/>
             <when state="ogonek" output="ǫ"/>
             <when state="umlaut" output="ö"/>
@@ -739,6 +751,7 @@
             <when state="acute" output="ú"/>
             <when state="cedilla" output="u̧"/>
             <when state="circumflex" output="û"/>
+            <when state="double acute" output="ű"/>
             <when state="grave" output="ù"/>
             <when state="ogonek" output="ų"/>
             <when state="ring" output="ů"/>
@@ -784,6 +797,7 @@
         <when state="acute" output="´"/>
         <when state="cedilla" output="¸"/>
         <when state="circumflex" output="ˆ"/>
+        <when state="double acute" output="˝"/>
         <when state="grave" output="`"/>
         <when state="ogonek" output="˛"/>
         <when state="ring" output="˚"/>
