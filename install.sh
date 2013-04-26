@@ -18,9 +18,9 @@ then
 else
 	echo "» Instalez Romanian - Programmers folosind GitHub"
 	echo "» Instalez Romanian - Programmers.icns"
-	sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.icns" --output "/Library/Keyboard Layouts/Romanian - Programmers.icns"
+	sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.icns" --output "/Library/Keyboard Layouts/Romanian - Programmers.icns"
 	echo "» Instalez Romanian - Programmers.keylayout"
-	sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian - Programmers.keylayout" --output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
+	sudo curl --silent "https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.keylayout" --output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
 fi
 
 # clear the OS intl caches
