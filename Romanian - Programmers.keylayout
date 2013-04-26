@@ -23,13 +23,13 @@
             <modifier keys="anyShift caps?"/>
         </keyMapSelect>
         <keyMapSelect mapIndex="2">
-            <modifier keys="rightOption"/>
+            <modifier keys="anyOption"/>
         </keyMapSelect>
         <keyMapSelect mapIndex="3">
             <modifier keys="caps"/>
         </keyMapSelect>
         <keyMapSelect mapIndex="4">
-            <modifier keys="anyShift caps? rightOption"/>
+            <modifier keys="anyShift caps? anyOption"/>
         </keyMapSelect>
     </modifierMap>
     <keyMapSet id="ANSI">
