@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:10 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 13:16 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="2">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -38,12 +38,12 @@
             <key code="1" action="s"/>
             <key code="2" output="d"/>
             <key code="3" output="f"/>
-            <key code="4" output="h"/>
+            <key code="4" action="h"/>
             <key code="5" action="g"/>
             <key code="6" action="z"/>
             <key code="7" action="x"/>
             <key code="8" action="c"/>
-            <key code="9" output="v"/>
+            <key code="9" action="v"/>
             <key code="10" output="`"/>
             <key code="11" output="b"/>
             <key code="12" action="q"/>
@@ -51,7 +51,7 @@
             <key code="14" action="e"/>
             <key code="15" action="r"/>
             <key code="16" action="y"/>
-            <key code="17" output="t"/>
+            <key code="17" action="t"/>
             <key code="18" output="1"/>
             <key code="19" output="2"/>
             <key code="20" output="3"/>
@@ -128,12 +128,12 @@
             <key code="1" action="S"/>
             <key code="2" output="D"/>
             <key code="3" output="F"/>
-            <key code="4" output="H"/>
+            <key code="4" action="H"/>
             <key code="5" action="G"/>
             <key code="6" action="Z"/>
             <key code="7" action="X"/>
             <key code="8" action="C"/>
-            <key code="9" output="V"/>
+            <key code="9" action="V"/>
             <key code="10" output="~"/>
             <key code="11" output="B"/>
             <key code="12" action="Q"/>
@@ -141,7 +141,7 @@
             <key code="14" action="E"/>
             <key code="15" action="R"/>
             <key code="16" action="Y"/>
-            <key code="17" output="T"/>
+            <key code="17" action="T"/>
             <key code="18" output="!"/>
             <key code="19" output="@"/>
             <key code="20" output="#"/>
@@ -231,7 +231,7 @@
             <key code="24" output=""/>
             <key code="25" action="acute"/>
             <key code="26" action="grave"/>
-            <key code="27" output=""/>
+            <key code="27" action="umlaut"/>
             <key code="28" output=""/>
             <key code="29" output=""/>
             <key code="30" output="”"/>
@@ -452,25 +452,33 @@
             <when state="acute" output="Á"/>
             <when state="grave" output="À"/>
             <when state="ring" output="Å"/>
+            <when state="umlaut" output="Ä"/>
         </action>
         <action id="C">
             <when state="none" output="C"/>
             <when state="acute" output="Ć"/>
+            <when state="umlaut" output="C̈"/>
         </action>
         <action id="E">
             <when state="none" output="E"/>
             <when state="acute" output="É"/>
             <when state="grave" output="È"/>
             <when state="ring" output="E̊"/>
+            <when state="umlaut" output="Ë"/>
         </action>
         <action id="G">
             <when state="none" output="G"/>
             <when state="acute" output="Ǵ"/>
         </action>
+        <action id="H">
+            <when state="none" output="H"/>
+            <when state="umlaut" output="Ḧ"/>
+        </action>
         <action id="I">
             <when state="none" output="I"/>
             <when state="acute" output="Í"/>
             <when state="grave" output="Ì"/>
+            <when state="umlaut" output="Ï"/>
         </action>
         <action id="K">
             <when state="none" output="K"/>
@@ -483,20 +491,24 @@
         <action id="M">
             <when state="none" output="M"/>
             <when state="acute" output="Ḿ"/>
+            <when state="umlaut" output="M̈"/>
         </action>
         <action id="N">
             <when state="none" output="N"/>
             <when state="acute" output="Ń"/>
             <when state="grave" output="Ǹ"/>
+            <when state="umlaut" output="N̈"/>
         </action>
         <action id="O">
             <when state="none" output="O"/>
             <when state="acute" output="Ó"/>
             <when state="grave" output="Ò"/>
+            <when state="umlaut" output="Ö"/>
         </action>
         <action id="P">
             <when state="none" output="P"/>
             <when state="acute" output="Ṕ"/>
+            <when state="umlaut" output="P̈"/>
         </action>
         <action id="Q">
             <when state="none" output="Q"/>
@@ -509,28 +521,41 @@
         <action id="S">
             <when state="none" output="S"/>
             <when state="acute" output="Ś"/>
+            <when state="umlaut" output="S̈"/>
+        </action>
+        <action id="T">
+            <when state="none" output="T"/>
+            <when state="umlaut" output="T̈"/>
         </action>
         <action id="U">
             <when state="none" output="U"/>
             <when state="acute" output="Ú"/>
             <when state="grave" output="Ù"/>
             <when state="ring" output="Ů"/>
+            <when state="umlaut" output="Ü"/>
+        </action>
+        <action id="V">
+            <when state="none" output="V"/>
+            <when state="umlaut" output="V̈"/>
         </action>
         <action id="W">
             <when state="none" output="W"/>
             <when state="acute" output="Ẃ"/>
             <when state="grave" output="Ẁ"/>
             <when state="ring" output="W̊"/>
+            <when state="umlaut" output="Ẅ"/>
         </action>
         <action id="X">
             <when state="none" output="X"/>
             <when state="ring" output="X̊"/>
+            <when state="umlaut" output="Ẍ"/>
         </action>
         <action id="Y">
             <when state="none" output="Y"/>
             <when state="acute" output="Ý"/>
             <when state="grave" output="Ỳ"/>
             <when state="ring" output="Y̊"/>
+            <when state="umlaut" output="Ÿ"/>
         </action>
         <action id="Z">
             <when state="none" output="Z"/>
@@ -541,6 +566,7 @@
             <when state="acute" output="á"/>
             <when state="grave" output="à"/>
             <when state="ring" output="å"/>
+            <when state="umlaut" output="ä"/>
         </action>
         <action id="acute">
             <when state="none" next="acute"/>
@@ -548,12 +574,14 @@
         <action id="c">
             <when state="none" output="c"/>
             <when state="acute" output="ć"/>
+            <when state="umlaut" output="c̈"/>
         </action>
         <action id="e">
             <when state="none" output="e"/>
             <when state="acute" output="é"/>
             <when state="grave" output="è"/>
             <when state="ring" output="e̊"/>
+            <when state="umlaut" output="ë"/>
         </action>
         <action id="g">
             <when state="none" output="g"/>
@@ -562,10 +590,15 @@
         <action id="grave">
             <when state="none" next="grave"/>
         </action>
+        <action id="h">
+            <when state="none" output="h"/>
+            <when state="umlaut" output="ḧ"/>
+        </action>
         <action id="i">
             <when state="none" output="i"/>
             <when state="acute" output="í"/>
             <when state="grave" output="ì"/>
+            <when state="umlaut" output="ï"/>
         </action>
         <action id="k">
             <when state="none" output="k"/>
@@ -578,20 +611,24 @@
         <action id="m">
             <when state="none" output="m"/>
             <when state="acute" output="ḿ"/>
+            <when state="umlaut" output="m̈"/>
         </action>
         <action id="n">
             <when state="none" output="n"/>
             <when state="acute" output="ń"/>
             <when state="grave" output="ǹ"/>
+            <when state="umlaut" output="n̈"/>
         </action>
         <action id="o">
             <when state="none" output="o"/>
             <when state="acute" output="ó"/>
             <when state="grave" output="ò"/>
+            <when state="umlaut" output="ö"/>
         </action>
         <action id="p">
             <when state="none" output="p"/>
             <when state="acute" output="ṕ"/>
+            <when state="umlaut" output="p̈"/>
         </action>
         <action id="q">
             <when state="none" output="q"/>
@@ -607,6 +644,11 @@
         <action id="s">
             <when state="none" output="s"/>
             <when state="acute" output="ś"/>
+            <when state="umlaut" output="s̈"/>
+        </action>
+        <action id="t">
+            <when state="none" output="t"/>
+            <when state="umlaut" output="ẗ"/>
         </action>
         <action id="tilda">
             <when state="none" next="tilda"/>
@@ -616,22 +658,33 @@
             <when state="acute" output="ú"/>
             <when state="grave" output="ù"/>
             <when state="ring" output="ů"/>
+            <when state="umlaut" output="ü"/>
+        </action>
+        <action id="umlaut">
+            <when state="none" next="umlaut"/>
+        </action>
+        <action id="v">
+            <when state="none" output="v"/>
+            <when state="umlaut" output="v̈"/>
         </action>
         <action id="w">
             <when state="none" output="w"/>
             <when state="acute" output="ẃ"/>
             <when state="grave" output="ẁ"/>
             <when state="ring" output="ẘ"/>
+            <when state="umlaut" output="ẅ"/>
         </action>
         <action id="x">
             <when state="none" output="x"/>
             <when state="ring" output="x̊"/>
+            <when state="umlaut" output="ẍ"/>
         </action>
         <action id="y">
             <when state="none" output="y"/>
             <when state="acute" output="ý"/>
             <when state="grave" output="ỳ"/>
             <when state="ring" output="ẙ"/>
+            <when state="umlaut" output="ÿ"/>
         </action>
         <action id="z">
             <when state="none" output="z"/>
@@ -643,5 +696,6 @@
         <when state="grave" output="`"/>
         <when state="ring" output="˚"/>
         <when state="tilda" output="~"/>
+        <when state="umlaut" output="¨"/>
     </terminators>
 </keyboard>
