@@ -1,7 +1,7 @@
 <?XML version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!--Created by Ukelele version 2.2.4 on 2013-01-09 at 11:31 (GMT+02:00)-->
-<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 12:43 (GMT+02:00)-->
+<!--Last edited by Ukelele version 2.2.4 on 2013-04-26 at 12:58 (GMT+02:00)-->
 <keyboard group="126" id="-12374" name="Romanian - Programmers" maxout="1">
     <layouts>
         <layout first="0" last="17" modifiers="Modifiers" mapSet="ANSI"/>
@@ -34,23 +34,23 @@
     </modifierMap>
     <keyMapSet id="ANSI">
         <keyMap index="0">
-            <key code="0" output="a"/>
-            <key code="1" output="s"/>
+            <key code="0" action="a"/>
+            <key code="1" action="s"/>
             <key code="2" output="d"/>
             <key code="3" output="f"/>
             <key code="4" output="h"/>
-            <key code="5" output="g"/>
-            <key code="6" output="z"/>
+            <key code="5" action="g"/>
+            <key code="6" action="z"/>
             <key code="7" output="x"/>
-            <key code="8" output="c"/>
+            <key code="8" action="c"/>
             <key code="9" output="v"/>
             <key code="10" output="`"/>
             <key code="11" output="b"/>
             <key code="12" output="q"/>
-            <key code="13" output="w"/>
-            <key code="14" output="e"/>
-            <key code="15" output="r"/>
-            <key code="16" output="y"/>
+            <key code="13" action="w"/>
+            <key code="14" action="e"/>
+            <key code="15" action="r"/>
+            <key code="16" action="y"/>
             <key code="17" output="t"/>
             <key code="18" output="1"/>
             <key code="19" output="2"/>
@@ -65,22 +65,22 @@
             <key code="28" output="8"/>
             <key code="29" output="0"/>
             <key code="30" output="]"/>
-            <key code="31" output="o"/>
-            <key code="32" output="u"/>
+            <key code="31" action="o"/>
+            <key code="32" action="u"/>
             <key code="33" output="["/>
-            <key code="34" output="i"/>
-            <key code="35" output="p"/>
+            <key code="34" action="i"/>
+            <key code="35" action="p"/>
             <key code="36" output="&#x000D;"/>
-            <key code="37" output="l"/>
+            <key code="37" action="l"/>
             <key code="38" output="j"/>
             <key code="39" output="&#x0027;"/>
-            <key code="40" output="k"/>
+            <key code="40" action="k"/>
             <key code="41" output=";"/>
             <key code="42" output="\"/>
             <key code="43" output=","/>
             <key code="44" output="/"/>
-            <key code="45" output="n"/>
-            <key code="46" output="m"/>
+            <key code="45" action="n"/>
+            <key code="46" action="m"/>
             <key code="47" output="."/>
             <key code="48" output="&#x0009;"/>
             <key code="49" action=" "/>
@@ -124,23 +124,23 @@
             <key code="126" output="&#x001E;"/>
         </keyMap>
         <keyMap index="1">
-            <key code="0" output="A"/>
-            <key code="1" output="S"/>
+            <key code="0" action="A"/>
+            <key code="1" action="S"/>
             <key code="2" output="D"/>
             <key code="3" output="F"/>
             <key code="4" output="H"/>
-            <key code="5" output="G"/>
-            <key code="6" output="Z"/>
+            <key code="5" action="G"/>
+            <key code="6" action="Z"/>
             <key code="7" output="X"/>
-            <key code="8" output="C"/>
+            <key code="8" action="C"/>
             <key code="9" output="V"/>
             <key code="10" output="~"/>
             <key code="11" output="B"/>
             <key code="12" output="Q"/>
-            <key code="13" output="W"/>
-            <key code="14" output="E"/>
-            <key code="15" output="R"/>
-            <key code="16" output="Y"/>
+            <key code="13" action="W"/>
+            <key code="14" action="E"/>
+            <key code="15" action="R"/>
+            <key code="16" action="Y"/>
             <key code="17" output="T"/>
             <key code="18" output="!"/>
             <key code="19" output="@"/>
@@ -155,22 +155,22 @@
             <key code="28" output="*"/>
             <key code="29" output=")"/>
             <key code="30" output="}"/>
-            <key code="31" output="O"/>
-            <key code="32" output="U"/>
+            <key code="31" action="O"/>
+            <key code="32" action="U"/>
             <key code="33" output="{"/>
-            <key code="34" output="I"/>
-            <key code="35" output="P"/>
+            <key code="34" action="I"/>
+            <key code="35" action="P"/>
             <key code="36" output="&#x000D;"/>
-            <key code="37" output="L"/>
+            <key code="37" action="L"/>
             <key code="38" output="J"/>
             <key code="39" output="&#x0022;"/>
-            <key code="40" output="K"/>
+            <key code="40" action="K"/>
             <key code="41" output=":"/>
             <key code="42" output="|"/>
             <key code="43" output="&#x003C;"/>
             <key code="44" output="?"/>
-            <key code="45" output="N"/>
-            <key code="46" output="M"/>
+            <key code="45" action="N"/>
+            <key code="46" action="M"/>
             <key code="47" output="&#x003E;"/>
             <key code="48" output="&#x0009;"/>
             <key code="49" output=" "/>
@@ -229,7 +229,7 @@
             <key code="22" output=""/>
             <key code="23" output=""/>
             <key code="24" output=""/>
-            <key code="25" output=""/>
+            <key code="25" action="acute"/>
             <key code="26" output=""/>
             <key code="27" output=""/>
             <key code="28" output=""/>
@@ -447,11 +447,151 @@
             <when state="none" output=" "/>
             <when state="tilda" output="~"/>
         </action>
+        <action id="A">
+            <when state="none" output="A"/>
+            <when state="acute" output="Á"/>
+        </action>
+        <action id="C">
+            <when state="none" output="C"/>
+            <when state="acute" output="Ć"/>
+        </action>
+        <action id="E">
+            <when state="none" output="E"/>
+            <when state="acute" output="É"/>
+        </action>
+        <action id="G">
+            <when state="none" output="G"/>
+            <when state="acute" output="Ǵ"/>
+        </action>
+        <action id="I">
+            <when state="none" output="I"/>
+            <when state="acute" output="Í"/>
+        </action>
+        <action id="K">
+            <when state="none" output="K"/>
+            <when state="acute" output="Ḱ"/>
+        </action>
+        <action id="L">
+            <when state="none" output="L"/>
+            <when state="acute" output="Ĺ"/>
+        </action>
+        <action id="M">
+            <when state="none" output="M"/>
+            <when state="acute" output="Ḿ"/>
+        </action>
+        <action id="N">
+            <when state="none" output="N"/>
+            <when state="acute" output="Ń"/>
+        </action>
+        <action id="O">
+            <when state="none" output="O"/>
+            <when state="acute" output="Ó"/>
+        </action>
+        <action id="P">
+            <when state="none" output="P"/>
+            <when state="acute" output="Ṕ"/>
+        </action>
+        <action id="R">
+            <when state="none" output="R"/>
+            <when state="acute" output="Ŕ"/>
+        </action>
+        <action id="S">
+            <when state="none" output="S"/>
+            <when state="acute" output="Ś"/>
+        </action>
+        <action id="U">
+            <when state="none" output="U"/>
+            <when state="acute" output="Ú"/>
+        </action>
+        <action id="W">
+            <when state="none" output="W"/>
+            <when state="acute" output="Ẃ"/>
+        </action>
+        <action id="Y">
+            <when state="none" output="Y"/>
+            <when state="acute" output="Ý"/>
+        </action>
+        <action id="Z">
+            <when state="none" output="Z"/>
+            <when state="acute" output="Ź"/>
+        </action>
+        <action id="a">
+            <when state="none" output="a"/>
+            <when state="acute" output="á"/>
+        </action>
+        <action id="acute">
+            <when state="none" next="acute"/>
+        </action>
+        <action id="c">
+            <when state="none" output="c"/>
+            <when state="acute" output="ć"/>
+        </action>
+        <action id="e">
+            <when state="none" output="e"/>
+            <when state="acute" output="é"/>
+        </action>
+        <action id="g">
+            <when state="none" output="g"/>
+            <when state="acute" output="ǵ"/>
+        </action>
+        <action id="i">
+            <when state="none" output="i"/>
+            <when state="acute" output="í"/>
+        </action>
+        <action id="k">
+            <when state="none" output="k"/>
+            <when state="acute" output="ḱ"/>
+        </action>
+        <action id="l">
+            <when state="none" output="l"/>
+            <when state="acute" output="ĺ"/>
+        </action>
+        <action id="m">
+            <when state="none" output="m"/>
+            <when state="acute" output="ḿ"/>
+        </action>
+        <action id="n">
+            <when state="none" output="n"/>
+            <when state="acute" output="ń"/>
+        </action>
+        <action id="o">
+            <when state="none" output="o"/>
+            <when state="acute" output="ó"/>
+        </action>
+        <action id="p">
+            <when state="none" output="p"/>
+            <when state="acute" output="ṕ"/>
+        </action>
+        <action id="r">
+            <when state="none" output="r"/>
+            <when state="acute" output="ŕ"/>
+        </action>
+        <action id="s">
+            <when state="none" output="s"/>
+            <when state="acute" output="ś"/>
+        </action>
         <action id="tilda">
             <when state="none" next="tilda"/>
         </action>
+        <action id="u">
+            <when state="none" output="u"/>
+            <when state="acute" output="ú"/>
+        </action>
+        <action id="w">
+            <when state="none" output="w"/>
+            <when state="acute" output="ẃ"/>
+        </action>
+        <action id="y">
+            <when state="none" output="y"/>
+            <when state="acute" output="ý"/>
+        </action>
+        <action id="z">
+            <when state="none" output="z"/>
+            <when state="acute" output="ź"/>
+        </action>
     </actions>
     <terminators>
+        <when state="acute" output="´"/>
         <when state="tilda" output="~"/>
     </terminators>
 </keyboard>
