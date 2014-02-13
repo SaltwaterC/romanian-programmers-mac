@@ -18,5 +18,5 @@ curl --silent https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/
  * la instalare trebuie activat din:
   * *System Preferences > Language & Text > Input Sources > Romanian - Programmers* (OS X 10.8).
   * *System Preferences > Keyboard > Input Sources > [+] > Others > Romanian - Programmers* (OS X 10.9).
- * la actualizare este nevoie de un logout + login pentru ca schimbările să fie vizibile.
+ * la actualizare este nevoie de un logout + login pentru ca schimbările să fie vizibile. În cazul lui OS X 10.9, este nevoie de reactivare dacă se execută o actualizare.
  * scriptul de instalare invocă sudo pentru a putea executa acțiunie dorite. Dacă securitatea este o problemă, este recomandată clonarea acestui depozit, urmată de o instalare manuală, sau de o instalare locală (`./install.sh local`) după ce scriptul de instalare este inspectat.
