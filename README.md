@@ -10,7 +10,7 @@ Implementarea este completă, însă prezintă următoarele deficiențe:
 ## Instalare / Actualizare
 
 ```bash
-curl --silent https://raw.github.com/SaltwaterC/romanian-programmers-mac/master/install.sh --output "/tmp/rpm-install.sh" && bash "/tmp/rpm-install.sh" && rm -f "/tmp/rpm-install.sh"
+curl --silent --location --max-redirs 10 https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/install.sh --output "/tmp/rpm-install.sh" && bash "/tmp/rpm-install.sh" && rm -f "/tmp/rpm-install.sh"
 ```
 
 **Atenție!**
