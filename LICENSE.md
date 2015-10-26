@@ -1,6 +1,7 @@
 ## Romanian - Programmers license
 
 Copyright (c) 2013-2015, Stefan Rusu All rights reserved.
+Copyright (c) 2013-2015, Cristian Klein All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
