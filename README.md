@@ -1,6 +1,6 @@
 ## Despre
 
-Aranjament de tastatură "Romanian - Programmers" pentru Mac OS X. Proiect implementat folosind [Ukelele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) conform [SR 13392:2004](http://www.secarica.ro/std/sr_13392_2004_08_03.pdf).
+Aranjament de tastatură "Romanian - Programmers" pentru Mac OS X. Proiect implementat folosind [Ukelele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) conform [SR 13392:2004](http://www.secarica.ro/kbdro_help_romanian_standard_ro.pdf).
 
 Implementarea este completă, însă prezintă următoarele deficiențe:
 
