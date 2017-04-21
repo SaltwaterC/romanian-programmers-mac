@@ -2,6 +2,8 @@
 
 Aranjament de tastatură "Romanian - Programmers" pentru Mac OS X. Proiect implementat folosind [Ukelele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) conform [SR 13392:2004](http://www.secarica.ro/kbdro_help_romanian_standard_ro.pdf).
 
+Acest aranjament are o extensie non-standard, anume caracterul £ (pound sterling).
+
 Pe scurt:
 
 * `ALT + a` &rarr; _ă_
@@ -9,6 +11,7 @@ Pe scurt:
 * `ALT + i` &rarr; _î_
 * `ALT + s` &rarr; _ș_
 * `ALT + t` &rarr; _ț_
+* `ALT + g` &rarr; £
 
 Implementarea este completă, însă prezintă următoarele deficiențe:
 
@@ -18,7 +21,7 @@ Implementarea este completă, însă prezintă următoarele deficiențe:
 ## Instalare / Actualizare
 
 ```bash
-curl --silent --location --max-redirs 10 https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/install.sh --output "/tmp/rpm-install.sh" && bash "/tmp/rpm-install.sh" && rm -f "/tmp/rpm-install.sh"
+curl --silent --location --max-redirs 10 https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/non-standard/uk/install.sh --output "/tmp/rpm-install.sh" && bash "/tmp/rpm-install.sh" && rm -f "/tmp/rpm-install.sh"
 ```
 
 **Atenție!**
