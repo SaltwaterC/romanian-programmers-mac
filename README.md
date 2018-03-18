@@ -24,7 +24,6 @@ Aranjamentul cu tasta de modificare ALT:
 
 Implementarea este completă, însă prezintă următoarele deficiențe:
 
- * Caracterele speciale nu interacționeză corect cu CAPS LOCK.
  * Ambele taste ALT (option) au rolul de AltGr. AltGr este interpretata drept CTRL + ALT, dacă această tastă există. Apple nu are AltGr pe tastaturile proprii, iar combinațiile s-ar complica într-un mod inutil pentru aproduce aceeași combinație.
 
 ## Instalare / Actualizare
