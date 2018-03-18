@@ -10,6 +10,18 @@ Pe scurt:
 * `ALT + s` &rarr; _ș_
 * `ALT + t` &rarr; _ț_
 
+Imaginea de ansamblu a aranjamentului:
+
+![romanian-programmers-full](screenshots/romanian-programmers-full.png)
+
+Aranjamentul implicit fără a apăsa taste de modificare:
+
+![romanian-programmers-default](screenshots/romanian-programmers-default.png)
+
+Aranjamentul cu tasta de modificare ALT:
+
+![romanian-programmers-alt-modifier](screenshots/romanian-programmers-alt-modifier.png)
+
 Implementarea este completă, însă prezintă următoarele deficiențe:
 
  * Caracterele speciale nu interacționeză corect cu CAPS LOCK.
