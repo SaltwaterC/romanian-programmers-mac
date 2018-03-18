@@ -22,9 +22,7 @@ Aranjamentul cu tasta de modificare ALT:
 
 ![romanian-programmers-alt-modifier](screenshots/romanian-programmers-alt-modifier.png)
 
-Implementarea este completă, însă prezintă următoarele deficiențe:
-
- * Ambele taste ALT (option) au rolul de AltGr. AltGr este interpretata drept CTRL + ALT, dacă această tastă există. Apple nu are AltGr pe tastaturile proprii, iar combinațiile s-ar complica într-un mod inutil pentru aproduce aceeași combinație.
+Implementarea este completă, însă prezintă următoarea deficiență: ambele taste ALT (option) au rolul de AltGr. AltGr este interpretata drept CTRL + ALT, dacă această tastă există. Apple nu are AltGr pe tastaturile proprii. Combinațiile s-ar complica într-un mod inutil pentru aproduce aceeași combinație. Din moment ce din punct de vedere hardware, tastele sunt identice, `rightOption` în loc de `anyOption` nu se poate folosi. Această problemă nu poate fi rezolvată pentru o tastatură Apple.
 
 ## Instalare / Actualizare
 
