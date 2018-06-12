@@ -10,6 +10,10 @@ Pe scurt:
 * `ALT + s` &rarr; _ș_
 * `ALT + t` &rarr; _ț_
 
+Extensie non-standard:
+
+* `ALT + g` &rarr; £ - disponibilă în ramura [non-standard/uk](https://github.com/SaltwaterC/romanian-programmers-mac/tree/non-standard/uk)
+
 Imaginea de ansamblu a aranjamentului:
 
 ![romanian-programmers-full](screenshots/romanian-programmers-full.png)
