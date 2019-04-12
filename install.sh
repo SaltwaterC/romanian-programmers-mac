@@ -14,12 +14,15 @@ echo "Cel de-al doilea aranjament se poate intalni si in cazul tastaturilor care
 echo "au inscriptionate diacritice pentru limba Romana fabricate de Apple, dar "
 echo "nu in pozitiile definite de SR 13392:2004. Acest tip de aranjament are o "
 echo "tasta suplimentara intre Shift si Z."
+echo 
+echo "Al treilea aranjament schimba intre ele tastele \"§± cu \`~\" pentru "
+echo "pentru tastaturile cu \"§ si ±\" inainte de 1"
 echo
-read -p "Alege varianta aranjamentului (1 sau 2): " layout
+read -p "Alege varianta aranjamentului (1 sau 2 sau 3) : " layout
 
-if [ "${layout}" != "1" ] && [ "${layout}" != "2" ]
+if [ "${layout}" != "1" ] && [ "${layout}" != "2" ] && [ "${layout}" != "3" ]
 then
-	echo "Aranjamentul ales este invalid. Valori acceptate: 1 sau 2."
+	echo "Aranjamentul ales este invalid. Valori acceptate: 1, 2 sau 3."
 	exit 1
 fi
 
