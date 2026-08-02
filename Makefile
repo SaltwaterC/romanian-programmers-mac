@@ -1,4 +1,4 @@
-.PHONY: all bundle icons
+.PHONY: all bundle icons install install-user install-system uninstall uninstall-user uninstall-system reinstall
 .DEFAULT: all
 
 all:
@@ -14,3 +14,22 @@ bundle: all
 	@/usr/bin/plutil -insert 'KLInfo_Romanian - Programmers.TISIconIsTemplate' -bool true 'Romanian - Programmers.bundle/Contents/Info.plist'
 	@cp 'Romanian - Programmers 2.keylayout' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.keylayout'
 	@cp 'Romanian - Programmers RO.icns' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.icns'
+
+# The default developer workflow is per-user and does not require sudo.
+install: install-user
+
+install-user: all
+	@./install.sh local --user
+
+install-system: all
+	@./install.sh local --system
+
+uninstall: uninstall-user
+
+uninstall-user:
+	@./uninstall.sh --user
+
+uninstall-system:
+	@./uninstall.sh --system
+
+reinstall: uninstall-user install-user

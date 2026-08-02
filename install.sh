@@ -1,5 +1,69 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+usage() {
+	echo "Utilizare: $0 [local|remote] [--user|--system]"
+	echo
+	echo "  local       folosește fișierele din depozitul curent"
+	echo "  remote      descarcă fișierele din GitHub (implicit)"
+	echo "  --user      instalează doar pentru utilizatorul curent, fără sudo (implicit)"
+	echo "  --system    instalează pentru toți utilizatorii, folosind sudo"
+}
+
+source_mode="remote"
+install_scope="user"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+for argument in "$@"
+do
+	case "${argument}" in
+		local)
+			source_mode="local"
+			;;
+		remote)
+			source_mode="remote"
+			;;
+		--user|user)
+			install_scope="user"
+			;;
+		--system|system)
+			install_scope="system"
+			;;
+		-h|--help)
+			usage
+			exit 0
+			;;
+		*)
+			echo "Argument necunoscut: ${argument}" >&2
+			usage >&2
+			exit 1
+			;;
+	esac
+done
+
+if [ "$(id -u)" -eq 0 ]
+then
+	echo "Nu rula scriptul cu sudo; varianta --system cere sudo doar pentru copierea fișierelor." >&2
+	exit 1
+fi
+
+if [ "${install_scope}" = "user" ]
+then
+	install_dir="${HOME}/Library/Keyboard Layouts"
+else
+	install_dir="/Library/Keyboard Layouts"
+fi
+
+run_privileged() {
+	if [ "${install_scope}" = "system" ]
+	then
+		sudo "$@"
+	else
+		"$@"
+	fi
+}
+
 # make the users aware that there are multiple layouts
 echo "Trebuie sa alegi aranjamentul potrivit pentru tastatura ta."
 echo
@@ -9,13 +73,13 @@ echo "Acele aranjamente sunt de fapt vreo doua din punct de vedere functional."
 echo
 echo "» Primul aranjament are tasta inscriptionata cu \"\` si ~\" inainte de 1"
 echo "» Al doilea aranjament are tasta inscriptionata cu \"§ si ±\" inainte de 1"
-echo 
+echo
 echo "Cel de-al doilea aranjament se poate intalni si in cazul tastaturilor care"
 echo "au inscriptionate diacritice pentru limba Romana fabricate de Apple, dar "
 echo "nu in pozitiile definite de SR 13392:2004. Acest tip de aranjament are o "
 echo "tasta suplimentara intre Shift si Z."
 echo
-read -p "Alege varianta aranjamentului (1 sau 2): " layout
+read -r -p "Alege varianta aranjamentului (1 sau 2): " layout
 
 if [ "${layout}" != "1" ] && [ "${layout}" != "2" ]
 then
@@ -36,59 +100,49 @@ then
 	legacy_icon=1
 fi
 
-# the directory may not exist
-sudo mkdir -p "/Library/Keyboard Layouts"
-
-# Remove the old loose layout and any previous bundle. The bundle metadata is
-# what makes macOS list the layout under Romanian instead of Others.
-sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.keylayout"
-sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.icns"
-sudo rm -fv "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
-sudo rm -fv "/Library/Keyboard Layouts/Romanian - Programmers.icns"
-sudo rm -rf "/Library/Keyboard Layouts/Romanian - Programmers.bundle"
-
 staging_dir="$(mktemp -d)"
 bundle_dir="${staging_dir}/Romanian - Programmers.bundle/Contents"
 resource_dir="${bundle_dir}/Resources"
 mkdir -p "${resource_dir}"
 trap 'rm -rf "${staging_dir}"' EXIT
 
-# install / update the current version
-if [ "$1" == "local" ]
+# Install / update the current version. Build the replacement in a temporary
+# directory first, so a failed download does not remove a working installation.
+if [ "${source_mode}" = "local" ]
 then
 	echo "» Instalez Romanian - Programmers folosind depozitul curent"
-	cp "Romanian - Programmers Info.plist" "${bundle_dir}/Info.plist"
-	cp "Romanian - Programmers ${layout}.keylayout" \
-"${resource_dir}/Romanian - Programmers.keylayout"
+	cp "${script_dir}/Romanian - Programmers Info.plist" "${bundle_dir}/Info.plist"
+	cp "${script_dir}/Romanian - Programmers ${layout}.keylayout" \
+		"${resource_dir}/Romanian - Programmers.keylayout"
 	if [ "${legacy_icon}" -eq 1 ]
 	then
 		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
-		cp "Romanian - Programmers Flag.icns" \
-"${resource_dir}/Romanian - Programmers.icns"
+		cp "${script_dir}/Romanian - Programmers Flag.icns" \
+			"${resource_dir}/Romanian - Programmers.icns"
 	else
 		echo "» Instalez iconița RO pentru macOS 12.4+"
-		cp "Romanian - Programmers RO.icns" \
-"${resource_dir}/Romanian - Programmers.icns"
+		cp "${script_dir}/Romanian - Programmers RO.icns" \
+			"${resource_dir}/Romanian - Programmers.icns"
 	fi
 else
 	echo "» Instalez Romanian - Programmers folosind GitHub"
 	curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Info.plist" \
---output "${bundle_dir}/Info.plist"
+		"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Info.plist" \
+		--output "${bundle_dir}/Info.plist"
 	echo "» Instalez Romanian - Programmers ${layout}.keylayout"
 	curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20${layout}.keylayout" \
+		"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20${layout}.keylayout" \
 		--output "${resource_dir}/Romanian - Programmers.keylayout"
 	if [ "${legacy_icon}" -eq 1 ]
 	then
 		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
 		curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Flag.icns" \
+			"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Flag.icns" \
 			--output "${resource_dir}/Romanian - Programmers.icns"
 	else
 		echo "» Instalez iconița RO pentru macOS 12.4+"
 		curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20RO.icns" \
+			"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20RO.icns" \
 			--output "${resource_dir}/Romanian - Programmers.icns"
 	fi
 fi
@@ -101,13 +155,19 @@ then
 		-bool true "${bundle_dir}/Info.plist"
 fi
 
-echo "» Instalez bundle-ul Romanian - Programmers"
-sudo cp -R "${staging_dir}/Romanian - Programmers.bundle" \
-"/Library/Keyboard Layouts/"
+# The bundle metadata is what makes macOS list the layout under Romanian
+# instead of Others. Remove old loose layouts and the previous bundle only
+# after the replacement bundle has been prepared successfully.
+run_privileged mkdir -p "${install_dir}"
+run_privileged rm -fv "${install_dir}/Romanian Programmers Mac.keylayout"
+run_privileged rm -fv "${install_dir}/Romanian Programmers Mac.icns"
+run_privileged rm -fv "${install_dir}/Romanian - Programmers.keylayout"
+run_privileged rm -fv "${install_dir}/Romanian - Programmers.icns"
+run_privileged rm -rf "${install_dir}/Romanian - Programmers.bundle"
 
-# clear the OS intl caches
-sudo find /System/Library/Caches -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
-sudo find /var -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
+echo "» Instalez bundle-ul Romanian - Programmers în ${install_dir}"
+run_privileged cp -R "${staging_dir}/Romanian - Programmers.bundle" \
+	"${install_dir}/"
 
 # The menu-bar input source is cached by per-user agents separately from the
 # Keyboard Layouts view. Restart them so an updated icon is picked up without
@@ -115,5 +175,9 @@ sudo find /var -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
 echo "» Reîncarc meniul de input"
 killall TextInputMenuAgent TextInputSwitcher PAH_Extension 2>/dev/null || true
 
-# in case of update ...
-echo -e "\n\033[1mAtentie: pentru ca schimbarile sa fie vizibile dupa actualizare, este nevoie de logout + login\033[0m"
+if [ "${install_scope}" = "user" ]
+then
+	echo -e "\n\033[1mBundle-ul a fost instalat pentru utilizatorul curent. Adaugă Romanian - Programmers din System Settings > Keyboard > Input Sources.\033[0m"
+else
+	echo -e "\n\033[1mBundle-ul a fost instalat system-wide. Fiecare utilizator îl poate adăuga din propriile Input Sources.\033[0m"
+fi
