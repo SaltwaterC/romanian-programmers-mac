@@ -4,6 +4,8 @@ Aranjament de tastatură "Romanian - Programmers" pentru Mac OS X / macOS. Proie
 
 Aranjamentul este împachetat ca `Romanian - Programmers.bundle`. Metadata bundle-ului declară limba română (`TISIntendedLanguage = ro`), astfel încât macOS îl afișează în secțiunea **Romanian**, nu în **Others**. Pe macOS 12.4 și mai nou, instalatorul folosește o iconiță `RO` în stilul macOS; pe versiunile mai vechi folosește un steag românesc generat programatic.
 
+Versiunea standard respectă SR 13392:2004. Este disponibilă și extensia `non-standard/uk`, care mapează `ALT + g` la £ (pound sterling). Layout-ul 2 standard este sursa editabilă; `make all` generează automat layout-ul 1 standard și ambele variante ale extensiei UK.
+
 Pe scurt:
 
 * `ALT + a` &rarr; _ă_
@@ -14,7 +16,9 @@ Pe scurt:
 
 Extensie non-standard:
 
-* `ALT + g` &rarr; £ - disponibilă în ramura [non-standard/uk](https://github.com/SaltwaterC/romanian-programmers-mac/tree/non-standard/uk)
+* `ALT + g` &rarr; £
+
+Capturile de mai jos arată varianta standard.
 
 Imaginea de ansamblu a aranjamentului:
 
@@ -28,6 +32,12 @@ Aranjamentul cu tasta de modificare ALT:
 
 ![romanian-programmers-alt-modifier](screenshots/romanian-programmers-alt-modifier.png)
 
+Capturile pentru extensia `non-standard/uk`, inclusiv tasta £, sunt păstrate separat:
+
+![romanian-programmers-full-non-standard-uk](screenshots/non-standard-uk/romanian-programmers-full.png)
+
+![romanian-programmers-alt-modifier-non-standard-uk](screenshots/non-standard-uk/romanian-programmers-alt-modifier.png)
+
 Implementarea este completă, însă prezintă următoarea deficiență: ambele taste ALT (option) au rolul de AltGr. AltGr este interpretată drept CTRL + ALT, dacă această tastă există. Apple nu are AltGr pe tastaturile proprii. Combinațiile s-ar complica într-un mod inutil pentru aproduce același rezultat. Din moment ce din punct de vedere hardware, tastele sunt identice, `rightOption` în loc de `anyOption` nu se poate folosi. Această deficiență nu poate fi rezolvată pentru o tastatură Apple.
 
 ## Instalare / Actualizare
@@ -39,6 +49,8 @@ Dintr-un checkout local:
 ```bash
 make install
 ```
+
+Instalatorul afișează meniuri numerotate pentru varianta standard/`non-standard/uk` și pentru layout-ul fizic (1 sau 2); trebuie doar să tastezi numărul opțiunii.
 
 Pentru instalarea system-wide, disponibilă tuturor utilizatorilor computerului:
 
@@ -68,7 +80,7 @@ Scripturile pot fi folosite și direct:
 curl --silent --location --max-redirs 10 https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/install.sh --output "/tmp/rpm-install.sh" && bash "/tmp/rpm-install.sh" && rm -f "/tmp/rpm-install.sh"
 ```
 
-Comanda de mai sus instalează per-user. Pentru instalare system-wide, adaugă `--system` după script: `bash "/tmp/rpm-install.sh" --system`.
+Comanda de mai sus instalează per-user și solicită alegerile interactiv. Pentru instalare system-wide, adaugă `--system`.
 
 În timpul dezvoltării, `./install.sh local` folosește fișierele din checkout-ul curent și instalează per-user; pentru varianta system-wide se folosește `./install.sh local --system`.
 

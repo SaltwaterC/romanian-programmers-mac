@@ -13,6 +13,8 @@ usage() {
 
 source_mode="remote"
 install_scope="user"
+layout_variant=""
+layout_version=""
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 for argument in "$@"
@@ -79,12 +81,46 @@ echo "au inscriptionate diacritice pentru limba Romana fabricate de Apple, dar "
 echo "nu in pozitiile definite de SR 13392:2004. Acest tip de aranjament are o "
 echo "tasta suplimentara intre Shift si Z."
 echo
-read -r -p "Alege varianta aranjamentului (1 sau 2): " layout
+PS3="Alege varianta layout-ului: "
+select layout_choice in \
+	"standard" \
+	"non-standard/uk (Option + G produce £)"
+do
+	case "${REPLY}" in
+		1)
+			layout_variant="standard"
+			layout_description="standard"
+			break
+			;;
+		2)
+			layout_variant="uk"
+			layout_description="non-standard/uk"
+			break
+			;;
+		*)
+			echo "Alegere invalidă. Tastează 1 sau 2." >&2
+			;;
+	esac
+done
 
-if [ "${layout}" != "1" ] && [ "${layout}" != "2" ]
+PS3="Alege varianta fizică a tastaturii: "
+select layout_version in "1" "2"
+do
+	case "${REPLY}" in
+		1|2)
+			break
+			;;
+		*)
+			echo "Alegere invalidă. Tastează 1 sau 2." >&2
+			;;
+	esac
+done
+
+if [ "${layout_variant}" = "uk" ]
 then
-	echo "Aranjamentul ales este invalid. Valori acceptate: 1 sau 2."
-	exit 1
+	layout_file="Romanian - Programmers non-standard UK ${layout_version}.keylayout"
+else
+	layout_file="Romanian - Programmers ${layout_version}.keylayout"
 fi
 
 # macOS 12.4 replaced the system input-source flags with language-code icons.
@@ -112,7 +148,7 @@ if [ "${source_mode}" = "local" ]
 then
 	echo "» Instalez Romanian - Programmers folosind depozitul curent"
 	cp "${script_dir}/Romanian - Programmers Info.plist" "${bundle_dir}/Info.plist"
-	cp "${script_dir}/Romanian - Programmers ${layout}.keylayout" \
+	cp "${script_dir}/${layout_file}" \
 		"${resource_dir}/Romanian - Programmers.keylayout"
 	if [ "${legacy_icon}" -eq 1 ]
 	then
@@ -129,9 +165,9 @@ else
 	curl --fail --silent --show-error --location --max-redirs 10 \
 		"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Info.plist" \
 		--output "${bundle_dir}/Info.plist"
-	echo "» Instalez Romanian - Programmers ${layout}.keylayout"
+	echo "» Instalez ${layout_file} (${layout_description})"
 	curl --fail --silent --show-error --location --max-redirs 10 \
-		"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20${layout}.keylayout" \
+		"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/${layout_file// /%20}" \
 		--output "${resource_dir}/Romanian - Programmers.keylayout"
 	if [ "${legacy_icon}" -eq 1 ]
 	then
