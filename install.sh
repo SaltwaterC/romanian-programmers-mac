@@ -23,6 +23,20 @@ then
 	exit 1
 fi
 
+# macOS 12.4 replaced input-source flags with language-code icons. Keep the
+# custom flag only for older releases; on newer releases the absence of an
+# .icns resource lets macOS render its native language indicator (for example
+# "RO" or "A").
+macos_version="$(sw_vers -productVersion 2>/dev/null || true)"
+macos_major="${macos_version%%.*}"
+macos_minor="${macos_version#*.}"
+macos_minor="${macos_minor%%.*}"
+legacy_icon=0
+if [ -n "${macos_major}" ] && { [ "${macos_major}" -lt 12 ] || { [ "${macos_major}" -eq 12 ] && [ "${macos_minor}" -lt 4 ]; }; }
+then
+	legacy_icon=1
+fi
+
 # the directory may not exist
 sudo mkdir -p "/Library/Keyboard Layouts"
 
@@ -44,23 +58,31 @@ trap 'rm -rf "${staging_dir}"' EXIT
 if [ "$1" == "local" ]
 then
 	echo "» Instalez Romanian - Programmers folosind depozitul curent"
-	cp "Romanian - Programmers.bundle/Contents/Info.plist" "${bundle_dir}/Info.plist"
-	cp "Romanian - Programmers.icns" \
-"${resource_dir}/Romanian - Programmers.icns"
+	cp "Romanian - Programmers Info.plist" "${bundle_dir}/Info.plist"
 	cp "Romanian - Programmers ${layout}.keylayout" \
 "${resource_dir}/Romanian - Programmers.keylayout"
+	if [ "${legacy_icon}" -eq 1 ]
+	then
+		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
+		cp "Romanian - Programmers.icns" \
+"${resource_dir}/Romanian - Programmers.icns"
+	fi
 else
 	echo "» Instalez Romanian - Programmers folosind GitHub"
 	curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.bundle/Contents/Info.plist" \
+"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Info.plist" \
 --output "${bundle_dir}/Info.plist"
-	curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.icns" \
-	--output "${resource_dir}/Romanian - Programmers.icns"
 	echo "» Instalez Romanian - Programmers ${layout}.keylayout"
 	curl --fail --silent --show-error --location --max-redirs 10 \
 "https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20${layout}.keylayout" \
-	--output "${resource_dir}/Romanian - Programmers.keylayout"
+		--output "${resource_dir}/Romanian - Programmers.keylayout"
+	if [ "${legacy_icon}" -eq 1 ]
+	then
+		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
+		curl --fail --silent --show-error --location --max-redirs 10 \
+"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.icns" \
+			--output "${resource_dir}/Romanian - Programmers.icns"
+	fi
 fi
 
 echo "» Instalez bundle-ul Romanian - Programmers"

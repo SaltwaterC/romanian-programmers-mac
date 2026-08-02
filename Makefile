@@ -6,5 +6,6 @@ all:
 
 bundle: all
 	@mkdir -p 'Romanian - Programmers.bundle/Contents/Resources'
+	@cp 'Romanian - Programmers Info.plist' 'Romanian - Programmers.bundle/Contents/Info.plist'
 	@cp 'Romanian - Programmers 2.keylayout' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.keylayout'
 	@cp 'Romanian - Programmers.icns' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.icns'
