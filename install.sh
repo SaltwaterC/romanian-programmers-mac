@@ -84,7 +84,8 @@ echo
 PS3="Alege varianta layout-ului: "
 select layout_choice in \
 	"standard" \
-	"non-standard/uk (Option + G produce £)"
+	"non-standard/uk (Option + G produce £)" \
+	"non-standard/de (Shift + Option + W produce ẞ)"
 do
 	case "${REPLY}" in
 		1)
@@ -97,8 +98,13 @@ do
 			layout_description="non-standard/uk"
 			break
 			;;
+		3)
+			layout_variant="de"
+			layout_description="non-standard/de"
+			break
+			;;
 		*)
-			echo "Alegere invalidă. Tastează 1 sau 2." >&2
+			echo "Alegere invalidă. Tastează 1, 2 sau 3." >&2
 			;;
 	esac
 done
@@ -119,6 +125,9 @@ done
 if [ "${layout_variant}" = "uk" ]
 then
 	layout_file="Romanian - Programmers non-standard UK ${layout_version}.keylayout"
+elif [ "${layout_variant}" = "de" ]
+then
+	layout_file="Romanian - Programmers non-standard DE ${layout_version}.keylayout"
 else
 	layout_file="Romanian - Programmers ${layout_version}.keylayout"
 fi

@@ -1,4 +1,4 @@
-.PHONY: all bundle icons install install-user install-system uninstall uninstall-user uninstall-system reinstall
+.PHONY: all bundle icons screenshots-de install install-user install-system uninstall uninstall-user uninstall-system reinstall
 .DEFAULT: all
 
 all:
@@ -7,6 +7,12 @@ all:
 icons:
 	@swift scripts/generate-language-icon.swift 'Romanian - Programmers RO.icns' 1024 language-code
 	@swift scripts/generate-language-icon.swift 'Romanian - Programmers Flag.icns' 1024 romanian-flag
+
+screenshots-de:
+	@swift scripts/generate-de-screenshots.swift \
+		'screenshots/romanian-programmers-full.png' \
+		'screenshots/romanian-programmers-alt-modifier.png' \
+		'screenshots/non-standard-de'
 
 bundle: all
 	@mkdir -p 'Romanian - Programmers.bundle/Contents/Resources'
