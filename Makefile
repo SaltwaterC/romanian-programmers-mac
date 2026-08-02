@@ -7,5 +7,6 @@ all:
 bundle: all
 	@mkdir -p 'Romanian - Programmers.bundle/Contents/Resources'
 	@cp 'Romanian - Programmers Info.plist' 'Romanian - Programmers.bundle/Contents/Info.plist'
+	@/usr/bin/plutil -insert 'KLInfo_Romanian - Programmers.TISIconIsTemplate' -bool true 'Romanian - Programmers.bundle/Contents/Info.plist'
 	@cp 'Romanian - Programmers 2.keylayout' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.keylayout'
-	@cp 'Romanian - Programmers.icns' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.icns'
+	@cp 'Romanian - Programmers RO.icns' 'Romanian - Programmers.bundle/Contents/Resources/Romanian - Programmers.icns'

@@ -2,7 +2,7 @@
 
 Aranjament de tastatură "Romanian - Programmers" pentru Mac OS X / macOS. Proiect implementat folosind [Ukelele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) conform [SR 13392:2004](http://www.secarica.ro/kbdro_help_romanian_standard_ro.pdf).
 
-Aranjamentul este împachetat ca `Romanian - Programmers.bundle`. Metadata bundle-ului declară limba română (`TISIntendedLanguage = ro`), astfel încât macOS îl afișează în secțiunea **Romanian**, nu în **Others**. Pe macOS 12.4 și mai nou, instalatorul lasă macOS să afișeze indicatorul nativ al sursei (de exemplu `RO` sau `A`); pe versiunile mai vechi instalează iconița cu steagul României.
+Aranjamentul este împachetat ca `Romanian - Programmers.bundle`. Metadata bundle-ului declară limba română (`TISIntendedLanguage = ro`), astfel încât macOS îl afișează în secțiunea **Romanian**, nu în **Others**. Pe macOS 12.4 și mai nou, instalatorul folosește o iconiță `RO` în stilul macOS; pe versiunile mai vechi folosește iconița cu steagul României.
 
 Pe scurt:
 
@@ -41,5 +41,6 @@ curl --silent --location --max-redirs 10 https://raw.githubusercontent.com/Saltw
  * la instalare trebuie activat din:
   * *System Preferences > Language & Text > Input Sources > Romanian - Programmers* (OS X 10.8).
   * *System Preferences > Keyboard > Input Sources > [+] > Romanian > Romanian - Programmers* (OS X/macOS 10.9+).
- * la instalare sau actualizare este nevoie de logout + login pentru reîncărcarea surselor de input; dacă nu apare imediat în **Romanian**, efectuează un reboot și adaugă din nou sursa.
+ * pe macOS 12.4+, iconița `RO` este o mască template lată, cu reprezentări mici legacy pentru meniul din bara de meniu și variante mari pentru System Settings; macOS îi adaptează culorile în funcție de context.
+ * instalatorul reîncarcă agenții meniului de input pentru a prelua iconița nouă; dacă sursa era deja activă, schimbă temporar pe altă sursă și revino la **Romanian - Programmers**.
  * scriptul de instalare invocă sudo pentru a putea executa acțiunie dorite. Dacă securitatea este o problemă, este recomandată clonarea acestui depozit, urmată de o instalare manuală, sau de o instalare locală (`./install.sh local`) după ce scriptul de instalare este inspectat.

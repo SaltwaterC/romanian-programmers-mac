@@ -23,10 +23,9 @@ then
 	exit 1
 fi
 
-# macOS 12.4 replaced input-source flags with language-code icons. Keep the
-# custom flag only for older releases; on newer releases the absence of an
-# .icns resource lets macOS render its native language indicator (for example
-# "RO" or "A").
+# macOS 12.4 replaced the system input-source flags with language-code icons.
+# Use a matching RO icon on newer releases and keep the Romanian flag for older
+# releases, where the flag is the native visual convention.
 macos_version="$(sw_vers -productVersion 2>/dev/null || true)"
 macos_major="${macos_version%%.*}"
 macos_minor="${macos_version#*.}"
@@ -66,6 +65,10 @@ then
 		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
 		cp "Romanian - Programmers.icns" \
 "${resource_dir}/Romanian - Programmers.icns"
+	else
+		echo "» Instalez iconița RO pentru macOS 12.4+"
+		cp "Romanian - Programmers RO.icns" \
+"${resource_dir}/Romanian - Programmers.icns"
 	fi
 else
 	echo "» Instalez Romanian - Programmers folosind GitHub"
@@ -82,7 +85,20 @@ else
 		curl --fail --silent --show-error --location --max-redirs 10 \
 "https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.icns" \
 			--output "${resource_dir}/Romanian - Programmers.icns"
+	else
+		echo "» Instalez iconița RO pentru macOS 12.4+"
+		curl --fail --silent --show-error --location --max-redirs 10 \
+"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20RO.icns" \
+			--output "${resource_dir}/Romanian - Programmers.icns"
 	fi
+fi
+
+# The modern RO icon is a template so macOS can adapt its foreground/background
+# colours in the menu bar. Keep the legacy flag untouched on older releases.
+if [ "${legacy_icon}" -eq 0 ]
+then
+	/usr/bin/plutil -insert 'KLInfo_Romanian - Programmers.TISIconIsTemplate' \
+		-bool true "${bundle_dir}/Info.plist"
 fi
 
 echo "» Instalez bundle-ul Romanian - Programmers"
@@ -92,6 +108,12 @@ sudo cp -R "${staging_dir}/Romanian - Programmers.bundle" \
 # clear the OS intl caches
 sudo find /System/Library/Caches -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
 sudo find /var -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
+
+# The menu-bar input source is cached by per-user agents separately from the
+# Keyboard Layouts view. Restart them so an updated icon is picked up without
+# requiring a full reboot. They are relaunched automatically by macOS.
+echo "» Reîncarc meniul de input"
+killall TextInputMenuAgent TextInputSwitcher PAH_Extension 2>/dev/null || true
 
 # in case of update ...
 echo -e "\n\033[1mAtentie: pentru ca schimbarile sa fie vizibile dupa actualizare, este nevoie de logout + login\033[0m"
