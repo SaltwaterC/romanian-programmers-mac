@@ -1,8 +1,12 @@
-.PHONY: all bundle
+.PHONY: all bundle icons
 .DEFAULT: all
 
 all:
 	@sed 's/code="10"/code="swap"/g; s/code="50"/code="10"/g; s/code="swap"/code="50"/g' 'Romanian - Programmers 2.keylayout' > 'Romanian - Programmers 1.keylayout'
+
+icons:
+	@swift scripts/generate-language-icon.swift 'Romanian - Programmers RO.icns' 1024 language-code
+	@swift scripts/generate-language-icon.swift 'Romanian - Programmers Flag.icns' 1024 romanian-flag
 
 bundle: all
 	@mkdir -p 'Romanian - Programmers.bundle/Contents/Resources'

@@ -63,7 +63,7 @@ then
 	if [ "${legacy_icon}" -eq 1 ]
 	then
 		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
-		cp "Romanian - Programmers.icns" \
+		cp "Romanian - Programmers Flag.icns" \
 "${resource_dir}/Romanian - Programmers.icns"
 	else
 		echo "» Instalez iconița RO pentru macOS 12.4+"
@@ -83,7 +83,7 @@ else
 	then
 		echo "» Instalez iconița steag pentru macOS anterior lui 12.4"
 		curl --fail --silent --show-error --location --max-redirs 10 \
-"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.icns" \
+"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20Flag.icns" \
 			--output "${resource_dir}/Romanian - Programmers.icns"
 	else
 		echo "» Instalez iconița RO pentru macOS 12.4+"
