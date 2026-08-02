@@ -26,30 +26,46 @@ fi
 # the directory may not exist
 sudo mkdir -p "/Library/Keyboard Layouts"
 
-# removing the previous version
+# Remove the old loose layout and any previous bundle. The bundle metadata is
+# what makes macOS list the layout under Romanian instead of Others.
 sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.keylayout"
 sudo rm -fv "/Library/Keyboard Layouts/Romanian Programmers Mac.icns"
+sudo rm -fv "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
+sudo rm -fv "/Library/Keyboard Layouts/Romanian - Programmers.icns"
+sudo rm -rf "/Library/Keyboard Layouts/Romanian - Programmers.bundle"
+
+staging_dir="$(mktemp -d)"
+bundle_dir="${staging_dir}/Romanian - Programmers.bundle/Contents"
+resource_dir="${bundle_dir}/Resources"
+mkdir -p "${resource_dir}"
+trap 'rm -rf "${staging_dir}"' EXIT
 
 # install / update the current version
 if [ "$1" == "local" ]
 then
 	echo "» Instalez Romanian - Programmers folosind depozitul curent"
-	echo "» Instalez Romanian - Programmers.icns"
-	sudo cp "Romanian - Programmers.icns" "/Library/Keyboard Layouts/"
-	echo "» Instalez Romanian - Programmers ${layout}.keylayout"
-	sudo cp "Romanian - Programmers ${layout}.keylayout" \
-"/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
+	cp "Romanian - Programmers.bundle/Contents/Info.plist" "${bundle_dir}/Info.plist"
+	cp "Romanian - Programmers.icns" \
+"${resource_dir}/Romanian - Programmers.icns"
+	cp "Romanian - Programmers ${layout}.keylayout" \
+"${resource_dir}/Romanian - Programmers.keylayout"
 else
 	echo "» Instalez Romanian - Programmers folosind GitHub"
-	echo "» Instalez Romanian - Programmers.icns"
-	sudo curl --silent --location --max-redirs 10 \
+	curl --fail --silent --show-error --location --max-redirs 10 \
+"https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.bundle/Contents/Info.plist" \
+--output "${bundle_dir}/Info.plist"
+	curl --fail --silent --show-error --location --max-redirs 10 \
 "https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers.icns" \
---output "/Library/Keyboard Layouts/Romanian - Programmers.icns"
+	--output "${resource_dir}/Romanian - Programmers.icns"
 	echo "» Instalez Romanian - Programmers ${layout}.keylayout"
-	sudo curl --silent --location --max-redirs 10 \
+	curl --fail --silent --show-error --location --max-redirs 10 \
 "https://raw.githubusercontent.com/SaltwaterC/romanian-programmers-mac/master/Romanian%20-%20Programmers%20${layout}.keylayout" \
---output "/Library/Keyboard Layouts/Romanian - Programmers.keylayout"
+	--output "${resource_dir}/Romanian - Programmers.keylayout"
 fi
+
+echo "» Instalez bundle-ul Romanian - Programmers"
+sudo cp -R "${staging_dir}/Romanian - Programmers.bundle" \
+"/Library/Keyboard Layouts/"
 
 # clear the OS intl caches
 sudo find /System/Library/Caches -name "*IntlDataCache*" 2>/dev/null | sudo xargs rm -v
