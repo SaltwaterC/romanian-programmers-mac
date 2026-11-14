@@ -1427,7 +1427,7 @@
 		<action id="t">
 			<when state="none" output="t"/>
 			<when state="caron" output="ť"/>
-			<when state="cedilla" output="ţ "/>
+			<when state="cedilla" output="ţ"/>
 			<when state="dot" output="ṫ"/>
 			<when state="umlaut" output="ẗ"/>
 		</action>
