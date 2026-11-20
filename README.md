@@ -89,5 +89,5 @@ După `make install`, deschide System Settings > Keyboard > Input Sources, apas�
 
 **Atenție!**
 
- * pe macOS 12.4+, iconița `RO` este o mască template lată, cu reprezentări mici legacy pentru meniul din bara de meniu și variante mari pentru System Settings; macOS îi adaptează culorile în funcție de context. Steagul pentru versiunile anterioare este generat de același script (`make icons`), fără asset extern.
- * instalarea per-user nu invocă `sudo`. Scriptul folosește `sudo` doar dacă este rulat cu `--system`; pentru siguranță, este recomandată inspectarea scriptului înainte de rularea lui.
+ * Pe macOS 12.4 și versiunile ulterioare, pictograma `RO` se adaptează automat la aspectul sistemului, atât în bara de meniu, cât și în System Settings. Pe versiunile mai vechi de macOS este folosit steagul României. Ambele variante sunt generate automat prin comanda `make icons`, fără a necesita fișiere grafice externe.
+ * Instalarea per-user nu invocă `sudo`. Scriptul folosește `sudo` doar dacă este rulat cu `--system`; pentru siguranță, este recomandată inspectarea scriptului înainte de rularea lui.
